@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,7 +15,7 @@
 // along with Moodle. If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_nivelamento', language 'en'
+ * Settings used by the nivelamento block
  *
  * @package block_nivelamento
  * @copyright CCEAD PUC-Rio - Angela de Araujo <angela.araujo.rj@gmail.com>
@@ -24,11 +23,11 @@
  */
 
 
-// General.
-$string ['pluginname'] = 'Language leveling';
+defined ( 'MOODLE_INTERNAL' ) || die ();
 
-// Admin settings file.
-$string ['headerconfig'] = 'Language leveling settings';
-$string ['headerconfigdesc'] = 'Settings for Language leveling';
-$string ['prefix'] = 'Prefix (idnumber)';
-$string ['width_details'] = 'Prefixo utilizado no idnumber do curso para filtrar curso/disciplina de nivelamento';
+$defaultprefix = 'niv';
+
+$settings->add ( new admin_setting_heading ( 'sampleheader', get_string ( 'headerconfig', 'block_nivelamento' ), get_string ( 'headerconfigdesc', 'block_nivelamento' ) ) );
+
+$settings->add ( new admin_setting_configtext ( 'block_nivelamento/prefix', get_string ( 'prefix', 'block_nivelamento' ), get_string ( 'width_details', 'block_nivelamento' ), $defaultprefix, PARAM_TEXT ) );
+

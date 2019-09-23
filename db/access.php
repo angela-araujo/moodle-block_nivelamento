@@ -39,8 +39,7 @@ $capabilities = array (
         
         // Specified user can add to courses etc.
         'block/nivelamento:addinstance' => array (
-                'riskbitmask' => RISK_SPAM | RISK_XSS,
-                
+                'riskbitmask' => RISK_SPAM | RISK_XSS,                
                 'captype' => 'write',
                 'contextlevel' => CONTEXT_BLOCK,
                 'archetypes' => array (
@@ -50,18 +49,4 @@ $capabilities = array (
                 
                 'clonepermissionsfrom' => 'moodle/site:manageblocks'
         ),
-        
-        // Restrict access to view page.
-        'block/nivelamento:seeviewpage' => array (
-                'captype' => 'read',
-                'contextlevel' => CONTEXT_USER,
-                'archetypes' => array (
-                        'editingteacher' => CAP_ALLOW,
-                        'teacher' => CAP_ALLOW,
-                        'manager' => CAP_ALLOW,
-                        'student' => CAP_ALLOW,
-                        'guest' => CAP_PREVENT
-                ),
-                'clonepermissionsfrom' => 'moodle/site:manageblocks'
-        )
 );

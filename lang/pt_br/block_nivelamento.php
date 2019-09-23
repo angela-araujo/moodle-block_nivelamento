@@ -26,3 +26,9 @@
 
 // General.
 $string ['pluginname'] = 'Nivelamento de idiomas';
+
+// Admin settings file.
+$string ['headerconfig'] = 'Nivelamento - configuração';
+$string ['headerconfigdesc'] = 'Configurções para nivelamento';
+$string ['prefix'] = 'Prefixo (idnumber)';
+$string ['width_details'] = 'Prefixo utilizado no idnumber do curso para filtrar curso/disciplina de nivelamento';

@@ -43,7 +43,7 @@ class block_nivelamento extends block_base {
      */
     function get_content() {
         
-        global $OUTPUT, $CFG;
+        global $USER, $OUTPUT, $CFG;
         
         // Do we have any content?
         if ($this->content !== null) {
@@ -60,10 +60,20 @@ class block_nivelamento extends block_base {
         $this->content->text = '';
         $this->content->footer = '';
         
-        // Get the block content.        
-        $courses = block_nivelamento_get_courses();
-        $icon = $OUTPUT->pix_icon('i/course', get_string('course'));
+        $regex = '/(a[0-9]{7}|f[0-9]{5})$/';
+        $alunopuc = preg_match($regex, $USER->username);
+        $admin = has_capability('moodle/course:update', context_system::instance()); // Check whether a user has a particular capability in a given context
+        
+        if (!( ($alunopuc) or ($admin) ) ){
+            return $this->content;
+        }
+        
+        $config = get_config('block_nivelamento');
 
+        // Get the block content.        
+        $courses = block_nivelamento_get_courses($config->prefix);
+        $icon = $OUTPUT->pix_icon('i/course', get_string('course'));        
+        
         foreach ($courses as $course) {
             
             $urlcourse = $CFG->wwwroot. '/course/view.php?id='. $course->id;
@@ -87,7 +97,7 @@ class block_nivelamento extends block_base {
      * Allow block configuration.
      */
     function has_config() {
-        return false;
+        return true;
     }
     
     /**
