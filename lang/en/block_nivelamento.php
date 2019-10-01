@@ -32,3 +32,6 @@ $string ['headerconfig'] = 'Language leveling settings';
 $string ['headerconfigdesc'] = 'Settings for Language leveling';
 $string ['prefix'] = 'Prefix (idnumber)';
 $string ['width_details'] = 'Prefixo utilizado no idnumber do curso para filtrar curso/disciplina de nivelamento';
+
+$string['nivelamento:addinstance'] = 'Add a new Nivelamento block';
+$string['nivelamento:myaddinstance'] = 'Add a new Nivelamento block to Dashboard';

@@ -62,7 +62,7 @@ class block_nivelamento extends block_base {
         
         $regex = '/(a[0-9]{7}|f[0-9]{5})$/';
         $alunopuc = preg_match($regex, $USER->username);
-        $admin = has_capability('moodle/course:update', context_system::instance()); // Check whether a user has a particular capability in a given context
+        $admin = has_capability('block/nivelamento:addinstance', context_system::instance()); // Check whether a user has a particular capability in a given context
         
         if (!( ($alunopuc) or ($admin) ) ){
             return $this->content;
