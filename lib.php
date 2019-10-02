@@ -24,20 +24,29 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-function block_nivelamento_get_courses($prefix='niv') {
+/**
+ * Get the list of courses.
+ *
+ * @param string $prefix .
+ * @return array Array of objects courses.
+ */
+function block_nivelamento_get_courses($prefix=null) {
     
     global $DB;
+    
+    $prefix = $prefix? $$prefix : 'niv'; 
 
     $sql = "SELECT  c.id, c.category, c.fullname, c.shortname, c.idnumber, c.format, c.sortorder, c.visible
             FROM    {course} c
-            WHERE   EXISTS (SELECT e.courseid
-            FROM {enrol} e
-            WHERE e.courseid = c.id
-            AND e.enrol LIKE 'self'
-            AND e.status = 0)
+            WHERE   EXISTS (
+                    SELECT e.courseid
+                    FROM {enrol} e
+                    WHERE e.courseid = c.id
+                    AND e.enrol LIKE 'self'
+                    AND e.status = 0)
             AND UPPER(c.idnumber) LIKE UPPER(:prefixidnumber)
             ORDER BY c.fullname;";
-    $courses = $DB->get_records_sql ( $sql, array('prefixidnumber' => $prefix.'%') );
+    $courses = $DB->get_records_sql($sql, array('prefixidnumber' => $prefix.'%'));
 
     return $courses;
 

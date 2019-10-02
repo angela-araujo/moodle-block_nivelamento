@@ -29,9 +29,9 @@ $string ['pluginname'] = 'Nivelamento de idiomas';
 
 // Admin settings file.
 $string ['headerconfig'] = 'Nivelamento - configuração';
-$string ['headerconfigdesc'] = 'Configurções para nivelamento';
+$string ['headerconfigdesc'] = 'Configurações para nivelamento';
 $string ['prefix'] = 'Prefixo (idnumber)';
-$string ['width_details'] = 'Prefixo utilizado no idnumber do curso para filtrar curso/disciplina de nivelamento';
+$string ['prefixdesc'] = 'Prefixo utilizado no idnumber do curso para filtrar curso/disciplina de nivelamento';
 
 $string['nivelamento:addinstance'] = 'Adicionar um novo bloco Nivelamento';
 $string['nivelamento:myaddinstance'] = 'Adicionar um novo bloco Nivelamento no Painel';

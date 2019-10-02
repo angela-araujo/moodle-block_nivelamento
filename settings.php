@@ -27,7 +27,10 @@ defined ( 'MOODLE_INTERNAL' ) || die ();
 
 $defaultprefix = 'niv';
 
-$settings->add ( new admin_setting_heading ( 'sampleheader', get_string ( 'headerconfig', 'block_nivelamento' ), get_string ( 'headerconfigdesc', 'block_nivelamento' ) ) );
+$settings->add(new admin_setting_heading('sampleheader', get_string('headerconfig', 'block_nivelamento'), get_string('headerconfigdesc', 'block_nivelamento')));
 
-$settings->add ( new admin_setting_configtext ( 'block_nivelamento/prefix', get_string ( 'prefix', 'block_nivelamento' ), get_string ( 'width_details', 'block_nivelamento' ), $defaultprefix, PARAM_TEXT ) );
+$settings->add(new admin_setting_configtext('block_nivelamento/prefix', 
+        get_string('prefix', 'block_nivelamento'), 
+        get_string ('prefixdesc', 'block_nivelamento'), 
+        $defaultprefix, PARAM_TEXT));
 
