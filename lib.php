@@ -34,7 +34,7 @@ function block_nivelamento_get_courses($prefix=null) {
     
     global $DB;
     
-    $prefix = $prefix? $$prefix : 'niv'; 
+    $prefix = $prefix? $prefix : 'niv'; 
 
     $sql = "SELECT  c.id, c.category, c.fullname, c.shortname, c.idnumber, c.format, c.sortorder, c.visible
             FROM    {course} c
